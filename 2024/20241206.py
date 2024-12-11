@@ -53,19 +53,3 @@ for e in visited:
     if (e[0], e[1]) not in visited_part1:
         visited_part1.append((e[0], e[1]))
 print("Part 1:", len(visited_part1))
-
-noloop = 0
-for loc in visited:
-    dx = loc[0] + d[loc[2]][0]
-    dy = loc[1] + d[loc[2]][1]
-    if 0 <= dx < r_len and 0 <= dy < c_len and guard_map[dx][dy] != '#':
-        guard_map[dx][dy] = '#'
-        dx = loc[0] + d[(loc[2] + 1) % 4][0]
-        dy = loc[1] + d[(loc[2] + 1) % 4][1]
-        if sim_guard([dx, dy], (loc[2] + 1) % 4, visited) == 'loop':
-            loop += 1
-        else:
-            noloop += 1
-        guard_map[dx][dy] = '.'
-        
-print("Part 2:", loop, noloop)
