@@ -3,7 +3,7 @@
 Created on Fri Dec  6 09:37:44 2024
 """
 
-f = open("20241206.txt", 'r')
+f = open("06.txt", 'r')
 guard_map = []
 for line in f.readlines():
     guard_map.append(list(line)[:-1])
