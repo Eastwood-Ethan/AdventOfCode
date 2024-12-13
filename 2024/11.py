@@ -4,7 +4,7 @@ Created on Wed Dec 11 09:07:55 2024
 """
 from collections import defaultdict
 
-f = open("20241211.txt", 'r')
+f = open("11.txt", 'r')
 stones = list(map(int, f.read()[:-1].split(" ")))
 f.close()
 
