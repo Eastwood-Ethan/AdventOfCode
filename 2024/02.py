@@ -3,7 +3,7 @@
 Created on Mon Dec  2 13:05:08 2024
 """
 
-f = open("20241202.txt", 'r')
+f = open("02.txt", 'r')
 data = []
 for line in f.readlines():
     data.append([int(num) for num in line.split(' ')])
