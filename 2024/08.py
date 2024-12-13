@@ -4,7 +4,7 @@ Created on Mon Dec  9 09:58:54 2024
 """
 from collections import defaultdict
 
-f = open("20241208.txt", 'r')
+f = open("08.txt", 'r')
 ant_map = []
 for line in f.readlines():
     ant_map.append(line[:-1])
