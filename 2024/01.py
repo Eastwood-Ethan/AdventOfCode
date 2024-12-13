@@ -5,7 +5,7 @@ Created on Mon Dec  2 12:51:15 2024
 
 from collections import defaultdict
 
-f = open("20241201.txt", 'r')
+f = open("01.txt", 'r')
 data = f.read()
 f.close()
 
