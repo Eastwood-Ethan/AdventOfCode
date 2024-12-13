@@ -4,7 +4,7 @@ Created on Tue Dec 10 16:08:10 2024
 """
 from collections import deque
 
-f = open("20241210.txt", 'r')
+f = open("10.txt", 'r')
 top_map = []
 for line in f.readlines():
     top_map.append(line[:-1])
