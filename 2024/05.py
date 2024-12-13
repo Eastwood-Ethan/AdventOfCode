@@ -3,7 +3,7 @@
 Created on Thu Dec  5 08:51:30 2024
 """
 
-f = open("20241205.txt", 'r')
+f = open("05.txt", 'r')
 data = f.read().split('\n\n')
 f.close()
 
