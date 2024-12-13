@@ -3,7 +3,7 @@
 Created on Tue Dec  3 09:34:46 2024
 """
 
-f = open("20241203.txt", 'r')
+f = open("03.txt", 'r')
 data = f.readlines()
 f.close()
 
