@@ -3,7 +3,7 @@
 Created on Tue Dec 10 09:10:03 2024
 """
 
-f = open("20241209.txt", 'r')
+f = open("09.txt", 'r')
 disk_map = f.read()[:-1]
 f.close()
 
