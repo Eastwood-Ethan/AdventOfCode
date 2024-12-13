@@ -9,7 +9,7 @@ def add(a, b):
 def mul(a, b):
     return a * b
 
-f = open("20241207.txt", 'r')
+f = open("07.txt", 'r')
 equations = []
 for line in f.readlines():
     equations.append(line[:-1].split(":"))
