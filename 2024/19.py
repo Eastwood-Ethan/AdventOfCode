@@ -11,7 +11,24 @@ designs = designs.split('\n')[:-1]
 
 f.close()
 
-def possibleDesign(design, towels, memo):
+def possibleDesign(design, towels):
+    if design in towels:
+        return True
+    
+    for i in range(1, len(design)):
+        sub_design = design[:i]
+        if sub_design in towels and possibleDesign(design[i:], towels):
+            return True
+    else:
+        return False
+    
+num_possible = 0
+for design in designs:
+    num_possible += possibleDesign(design, towels)
+print("Part 1:", num_possible)
+
+
+def possibleDesigns(design, towels, memo):
     if design in memo:
         return memo[design]
     
@@ -25,18 +42,13 @@ def possibleDesign(design, towels, memo):
             if design[i:] in memo:
                 num_ways += memo[design[i:]]
             else:
-                this_design = possibleDesign(design[i:], towels, memo)
+                this_design = possibleDesigns(design[i:], towels, memo)
                 memo[design[i:]] = this_design
                 num_ways += this_design
     
     return num_ways
 
-possibleDesigns = 0
-for design in designs:
-    possibleDesigns += bool(possibleDesign(design, towels, {}))
-print("Part 1:", possibleDesigns)
-
 num_ways = 0
 for design in designs:
-    num_ways += possibleDesign(design, towels, {})
+    num_ways += possibleDesigns(design, towels, {})
 print("Part 2:", num_ways)
