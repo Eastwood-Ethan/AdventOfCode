@@ -28,7 +28,7 @@ for design in designs:
 print("Part 1:", num_possible)
 
 
-def possibleDesigns(design, towels, memo):
+def num_designs(design, towels, memo):
     if design in memo:
         return memo[design]
     
@@ -42,7 +42,7 @@ def possibleDesigns(design, towels, memo):
             if design[i:] in memo:
                 num_ways += memo[design[i:]]
             else:
-                this_design = possibleDesigns(design[i:], towels, memo)
+                this_design = num_designs(design[i:], towels, memo)
                 memo[design[i:]] = this_design
                 num_ways += this_design
     
@@ -50,5 +50,5 @@ def possibleDesigns(design, towels, memo):
 
 num_ways = 0
 for design in designs:
-    num_ways += possibleDesigns(design, towels, {})
+    num_ways += num_designs(design, towels, {})
 print("Part 2:", num_ways)
