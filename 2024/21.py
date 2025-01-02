@@ -9,12 +9,12 @@ f.close()
 
 def path_memo(coords, scared_tile):
     res = {}
-    for i in coords.items():
-        for f in coords.items():
-            path = '<' * (i[1][1] - f[1][1]) + 'v' * (f[1][0] - i[1][0]) + '^' * (i[1][0] - f[1][0]) + '>' * (f[1][1] - i[1][1])
-            if scared_tile == (i[1][0], f[1][1]) or scared_tile == (f[1][0], i[1][1]):
+    for i, (xi, yi) in coords.items():
+        for f, (xf, yf) in coords.items():
+            path = '<' * (yi - yf) + 'v' * (xf - xi) + '^' * (xi - xf) + '>' * (yf - yi)
+            if scared_tile == (xi, yf) or scared_tile == (xf, yi):
                 path = path[::-1]
-            res[(i[0], f[0])] = path + 'A'
+            res[(i, f)] = path + 'A'
     return res
 
 numpad_coords = {c: (y, x) for y, row in enumerate(["789", "456", "123", " 0A"]) for x, c in enumerate(row)}
@@ -36,14 +36,10 @@ def find_len(code, num_robots, numpad=False):
         robot_pos = c
     return length
 
-complexities = 0
+complexities_part1, complexities_part2 = 0, 0
 for code in codes:
-    complexities += int(code[:3]) * find_len(code, 3, True)
+    complexities_part1 += int(code[:3]) * find_len(code, 3, True)
+    complexities_part2 += int(code[:3]) * find_len(code, 26, True)
 
-print("Part 1:", complexities)
-
-complexities = 0
-for code in codes:
-    complexities += int(code[:3]) * find_len(code, 26, True)
-
-print("Part 2:", complexities)
+print("Part 1:", complexities_part1)
+print("Part 2:", complexities_part2)
